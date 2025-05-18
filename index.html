@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sonn's Portfolio</title>
+    <link rel="stylesheet" href="styes.css">
+</head>
+
+<body>
+
+    <div class="particulas">
+
+    </div>
+    <nav class="navegacao">
+        <ul class="menu">
+            <li>
+                <a href="#inicio" class="menu-link">Início</a>
+            </li>
+
+            <li>
+                <a href="#sobre" class="menu-link">Sobre</a>
+            </li>
+
+            <li>
+                <a href="#projetos" class="menu-link">Projetos</a>
+            </li>
+
+            <li>
+                <a href="#contatos" class="menu-link">Contato</a>
+            </li>
+
+
+
+        </ul>
+
+    </nav>
+
+    <main id="inicio" class="header">
+        <img src="/foto minha.jpg" alt="" class="foto-perfil">
+        <h1>Vitor Sonn</h1>
+        <p class="header-subtitle">Estudante de ADS</p>
+
+    </main>
+
+    <section id="sobre" class="sobre">
+        <h2 class="sobre-titulo">Sobre mim</h2>
+
+        <div class="sobre-caixa">
+            <p class="sobre-paragrafo">Sou universitário, cursando ADS na FATEC - Dom Amaury Castanho. Programador
+                iniciante em busca de realizar os meus primeiros projetos pessoais usando linguagens como Python e
+                JavaScript. Meu foco é no desenvolvimento Back-end, mas possuo uma base no front-end.</p>
+        </div>
+    </section>
+
+    <section id="projetos" class="projetos">
+        <h2 class="projetos-titulo">Meus Projetos</h2>
+        <div class="projetos-caixa">
+
+            <div class="projetos-card">
+                <img src="/projeto1.png" alt="" class="projetos-imagem">
+                <div class="caixa-textos-projetos">
+                    <h3 class="info-projetos">Banco de dados com IA integrada</h3>
+                    <p class="sobre-projeto">Banco de dados para sites corporativos.</p>
+                </div>
+            </div>
+
+            <div class="projetos-card">
+                <img src="/projeto2.jpg" alt="" class="projetos-imagem">
+                <div class="caixa-textos-projetos">
+                <h3 class="info-projetos">Loja de carros </h3>
+                <p class="sobre-projeto">Loja virtual com design moderno e animações interativas e responsiva.</p>
+                </div>
+            </div>
+
+            <div class="projetos-card">
+                <img src="/projeto3.jpg" alt="" class="projetos-imagem">
+                <div class="caixa-textos-projetos">
+                <h3 class="info-projetos">Pagina do Spotify</h3>
+                <p class="sobre-projeto">Cópia da página do Spotify.</p>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="contatos" class="contatos">
+        <h2 class="contatos-titulo">Entre em contato comigo</h2>
+        <form action="" class="formulario-contato" id="formulario" onsubmit="enviarWhats(event)">
+            <div class="nome-form">
+                <input placeholder="Nome" class="campo-form" id="nome">
+            </div>
+
+            <div class="grupo-form">
+                <textarea placeholder="Digite sua mensagem" class="campo-form" id="mensagem" rows="5"></textarea>
+            </div>
+
+            <button type="submit" class="botao-form">Enviar WhatsApp</button>
+        </form>
+
+    </section>
+
+    <script>
+
+        function enviarWhats(event){ /*função: quando o evento "clicar para enviar o formulário" acontecer, realizar toda a operação abaixo dentro da função*/
+            event.preventDefault()    
+        
+            const nome = document.getElementById('nome').value;
+            const mensagem = document.getElementById('mensagem').value; /* document é todo o HTML, o getElementByID vai procurar um elemento chamado "nome" e "mensagem"*/
+            const telefone = '5511943592196'
+
+            const texto = `Olá! Me chamo ${nome}, ${mensagem}`
+            const msgFormatada = encodeURIComponent(texto) /*encodeURI formata a mensagem para possibilitar os espaços, já que na URL não aceita espaço*/
+
+            const url = `https://wa.me/${telefone}?text=${msgFormatada}`
+
+            window.open(url, '_blank') /*abre a url no navegador*/
+
+        }
+
+
+    </script>
+
+</body>
+
+</html>
